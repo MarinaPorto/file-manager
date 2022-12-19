@@ -29,45 +29,37 @@ function initCLI() {
     let dataCommand = data.toString();
     let mainOperation = data.toString().split(" ");
     let operation = mainOperation[0].trim();
-    if (mainOperation.length == 1) {
-      if (operation === "up") {
-        changeDir(dataCommand)
-      } else if (operation === "exit") {
-        console.log("dfhgjfghjjhdfhg")
-        closeCLI(userName, dataCommand)
-      } else if (operation == "ls") {
-        getElementslist(dataCommand, __dirname)
-      }
-    } else if (mainOperation.length == 2) {
-      if (operation === 'cd') {
-        goToPath(dataCommand)
-      } else if (operation === 'cat') {
-        readFile(dataCommand)
-      } else if (operation === 'add') {
-        createFile(dataCommand)
-      } else if (operation === 'rm') {
-        deleteFile(dataCommand)
-      } else if (operation === 'os') {
-        osInfo(dataCommand)
-      }
-      else if (operation === 'hash') {
-        calculateHash(dataCommand)
-      }
-    } else if ((mainOperation.length == 3)) {
-      if (operation === 'rn') {
-        renameFile(dataCommand)
-      } else if (operation === 'cp') {
-        copyFiles(dataCommand)
-      }
-      else if (operation === 'mv') {
-        moveFile(dataCommand)
-      }
-      else if (operation === 'compress') {
-        compressFile(dataCommand)
-      } else if (operation === 'decompress') {
-        decompressFile(dataCommand)
-      }
-    } else {
+
+    if (operation === "up") {
+      changeDir(dataCommand)
+    } else if (operation === ".exit") {
+      closeCLI(userName, dataCommand)
+    } else if (operation == "ls") {
+      getElementslist(dataCommand, __dirname)
+    } else if (operation === 'cd') {
+      goToPath(dataCommand)
+    } else if (operation === 'cat') {
+      readFile(dataCommand)
+    } else if (operation === 'add') {
+      createFile(dataCommand)
+    } else if (operation === 'rm') {
+      deleteFile(dataCommand)
+    } else if (operation === 'os') {
+      osInfo(dataCommand)
+    } else if (operation === 'hash') {
+      calculateHash(dataCommand)
+    } else if (operation === 'rn') {
+      renameFile(dataCommand)
+    } else if (operation === 'cp') {
+      copyFiles(dataCommand)
+    } else if (operation === 'mv') {
+      moveFile(dataCommand)
+    } else if (operation === 'compress') {
+      compressFile(dataCommand)
+    } else if (operation === 'decompress') {
+      decompressFile(dataCommand)
+    }
+    else {
       console.log("Invalid input")
     }
   })
