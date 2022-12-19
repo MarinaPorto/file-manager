@@ -18,64 +18,58 @@ import { compressFile } from './helpers/compress.js';
 import { decompressFile } from './helpers/decompress.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-console.log(__dirname)
-
-
 
 function initCLI() {
   const args = getArgs(process.argv)
   let userName = args.username;
-
-  console.log(args, "args index")
   console.log(`Welcome to the File Manager, ${userName}!`)
   console.log("You are currently in " + process.cwd())
 
   process.stdin.on('data', (data) => {
     let dataCommand = data.toString();
-    let partOfCommand = data.toString().split(" ");
-    console.log(partOfCommand, "partOfCommand")
-    console.log(dataCommand, "dataCommand")
-    if (partOfCommand.length == 1) {
-      if (partOfCommand[0].trim() === "up") {
+    let mainOperation = data.toString().split(" ");
+    let operation = mainOperation[0].trim();
+    if (mainOperation.length == 1) {
+      if (operation === "up") {
         changeDir(dataCommand)
-      } else if (partOfCommand[0].trim() === "exit") {
+      } else if (operation === "exit") {
         console.log("dfhgjfghjjhdfhg")
         closeCLI(userName, dataCommand)
-      } else if (partOfCommand[0].trim() == "ls") {
+      } else if (operation == "ls") {
         getElementslist(dataCommand, __dirname)
       }
-    } else if (partOfCommand.length == 2) {
-      if (partOfCommand[0].trim() === 'cd') {
+    } else if (mainOperation.length == 2) {
+      if (operation === 'cd') {
         goToPath(dataCommand)
-      } else if (partOfCommand[0].trim() === 'cat') {
+      } else if (operation === 'cat') {
         readFile(dataCommand)
-      } else if (partOfCommand[0].trim() === 'add') {
+      } else if (operation === 'add') {
         createFile(dataCommand)
-      } else if (partOfCommand[0].trim() === 'rm') {
+      } else if (operation === 'rm') {
         deleteFile(dataCommand)
-      } else if (partOfCommand[0].trim() === 'os') {
+      } else if (operation === 'os') {
         osInfo(dataCommand)
       }
-      else if (partOfCommand[0].trim() === 'hash') {
+      else if (operation === 'hash') {
         calculateHash(dataCommand)
       }
-
-    } else if ((partOfCommand.length == 3)) {
-      if (partOfCommand[0].trim() === 'rn') {
+    } else if ((mainOperation.length == 3)) {
+      if (operation === 'rn') {
         renameFile(dataCommand)
-      } else if (partOfCommand[0].trim() === 'cp') {
+      } else if (operation === 'cp') {
         copyFiles(dataCommand)
       }
-      else if (partOfCommand[0].trim() === 'mv') {
+      else if (operation === 'mv') {
         moveFile(dataCommand)
       }
-      else if (partOfCommand[0].trim() === 'compress') {
+      else if (operation === 'compress') {
         compressFile(dataCommand)
-      } else if (partOfCommand[0].trim() === 'decompress') {
+      } else if (operation === 'decompress') {
         decompressFile(dataCommand)
       }
+    } else {
+      console.log("Invalid input")
     }
-
   })
   closeCLIUsualCommand(userName)
 }
