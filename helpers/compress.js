@@ -5,13 +5,11 @@ import zlib from 'zlib';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-А
-const compressFile = async (dataCommand) => {
 
+const compressFile = async (dataCommand) => {
   let commandToCompress = dataCommand.toString().split(" ");
   let fileToCompress = commandToCompress[1].trim();
   let compressedFile = commandToCompress[2].trim();
-
   fs.stat(fileToCompress, (error, st) => {
     if (error) {
       console.log("Operation failed")
