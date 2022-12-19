@@ -5,11 +5,8 @@ import zlib from 'zlib';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-
+А
 const compressFile = async (dataCommand) => {
-
-
 
   let commandToCompress = dataCommand.toString().split(" ");
   let fileToCompress = commandToCompress[1].trim();
@@ -24,7 +21,6 @@ const compressFile = async (dataCommand) => {
       const out = fs.createWriteStream(compressedFile);
       const brotli = zlib.createBrotliCompress();
       inp.pipe(brotli).pipe(out);
-
     }
   })
 };

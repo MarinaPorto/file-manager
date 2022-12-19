@@ -21,7 +21,6 @@ async function getElememnts(__dirname) {
     files.filter(de => de.isFile()).map(de => {
       filesList.push({ name: de.name, type: "file" })
     });
-
   } catch (err) {
     console.log("err", err)
     console.log("Operation failed")

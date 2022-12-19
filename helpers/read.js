@@ -12,7 +12,6 @@ function readFile(data) {
       let data = '';
       readableStream.on('data', chunk => data += chunk);
       readableStream.on('end', () => console.log(data));
-
     } catch (err) {
       console.log("Operation failed")
     }
@@ -20,4 +19,4 @@ function readFile(data) {
 }
 
 
-export {readFile}
+export { readFile }

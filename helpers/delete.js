@@ -4,7 +4,6 @@ const deleteFile = async (dataCommand) => {
   let pathFileData = dataCommand.toString().split(" ");
   let fileToDelete = pathFileData[1].trim();
 
-
   fs.stat(fileToDelete, (error, st) => {
     if (error) {
       console.log("Operation failed")

@@ -4,7 +4,6 @@ function closeCLI(userName, data) {
     console.log(`Thank you for using File Manager, ${userName}, goodbye!`);
     process.exit();
   }
-  console.log('Пожалуйста, введите текст');
 }
 
 function closeCLIUsualCommand(userName) {

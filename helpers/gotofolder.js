@@ -1,6 +1,5 @@
 import path, { dirname, resolve } from 'path';
 
-
 function goToPath(data) {
   let pathToGo = data.toString().split(" ");
   if (pathToGo[0] === 'cd') {

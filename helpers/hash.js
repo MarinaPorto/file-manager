@@ -1,11 +1,9 @@
 import crypto from 'crypto';
 import fs from 'fs';
 
-
 const calculateHash = async (dataCommand) => {
   let hashData = dataCommand.toString().split(" ");
   let hashFile = hashData[1].trim();
-
 
   fs.stat(hashFile, (error, st) => {
     if (error) {
@@ -19,7 +17,6 @@ const calculateHash = async (dataCommand) => {
       });
     }
   })
-
 };
 
 export { calculateHash }
